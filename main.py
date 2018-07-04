@@ -3,8 +3,8 @@ from nltk.corpus import stopwords
 from nltk.tag import pos_tag
 import codecs
 
-stop_words = list(get_stop_words('en'))  # About 900 stopwords
-nltk_words = list(stopwords.words('english'))  # About 150 stopwords
+stop_words = list(get_stop_words('en'))
+nltk_words = list(stopwords.words('english'))
 stop_words.extend(nltk_words)
 
 output = [w for w in stop_words if not w in nltk_words]
@@ -12,10 +12,10 @@ unwanted_words = ['united', 'states', 'supreme', 'court', 'footnote', 'of', 'et'
                   'thus', 'since', 'hence', 'shall', 'upon']
 stop_words.extend(unwanted_words)
 
-for i in range(1, 2501):
-    read_file = 'RawCases/' + str(i) + '.txt'
-    write_file = 'StopWordsRemovedCases/' + str(i) + '.txt'
-    case = codecs.open(read_file, 'r', 'iso-8859-1').read()
+for i in range(1, 232):
+    read_file = 'CriminalCases/' + str(i) + '.txt'
+    write_file = 'StopWordsRemovedCriminalCases/' + str(i) + '.txt'
+    case = codecs.open(read_file, 'r').read()
     case = case.replace("[", "")
     case = case.replace("]", "")
 
